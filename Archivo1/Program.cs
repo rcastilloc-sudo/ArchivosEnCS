@@ -67,5 +67,6 @@ struct Estudiante
 {
     public string nombre;
     public string carrera;
+
     public double promedio;
 }
