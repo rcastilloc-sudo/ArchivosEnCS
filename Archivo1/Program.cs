@@ -62,6 +62,9 @@ void main()
                 mostrarDatos();
                 break;
             case 3:
+                guardarArchivo();
+                break;
+            case 4:
                 Console.WriteLine("Adios...");
                 break;
             default:
@@ -69,7 +72,7 @@ void main()
                 break;
 
         }
-    } while (op != 3);
+    } while (op != 4);
 }
 
 main();
