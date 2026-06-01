@@ -6,7 +6,8 @@ int menu()
 {
     Console.WriteLine("1. Agregar");
     Console.WriteLine("2. Mostrar");
-    Console.WriteLine("3. Salir");
+    Console.WriteLine("3. Guardar");
+    Console.WriteLine("4. Salir");
 
     Console.WriteLine("Digita tu opcion: ");
     return int.Parse(Console.ReadLine());
@@ -16,6 +17,7 @@ void pedirDatos()
 {
     for (int i = 0; i < 10; i++)
     {
+        Console.WriteLine($"Registro #{i + 1}");
         Console.Write("Nombre: ");
         estudiante[i].nombre = Console.ReadLine();
         Console.Write("Carrera: ");
