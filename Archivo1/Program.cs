@@ -36,6 +36,17 @@ void mostrarDatos()
     }
 }
 
+void guardarArchivo()
+{
+    StreamWriter archivo = new StreamWriter("registro.txt");
+    for (int i = 0; i < 10; i++)
+    {
+        archivo.WriteLine(estudiante[i].nombre + ";" + estudiante[i].carrera + ";" + estudiante[i].promedio);
+    }
+    archivo.Close();
+    Console.WriteLine("Registro guardado");
+}
+
 void main()
 {
     int op;
@@ -67,6 +78,5 @@ struct Estudiante
 {
     public string nombre;
     public string carrera;
-
     public double promedio;
 }
