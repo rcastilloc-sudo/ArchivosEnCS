@@ -8,7 +8,8 @@ int menu()
     Console.WriteLine("1. Agregar");
     Console.WriteLine("2. Mostrar");
     Console.WriteLine("3. Guardar");
-    Console.WriteLine("4. Salir");
+    Console.WriteLine("4. Eliminar registro");
+    Console.WriteLine("5. Salir");
 
     Console.WriteLine("Digita tu opcion: ");
     return int.Parse(Console.ReadLine());
@@ -56,6 +57,35 @@ void guardarArchivo()
     Console.WriteLine("Registro guardado");
 }
 
+int buscarRegistro(string nombre)
+{
+    return Array.FindIndex(estudiante, e => e.nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase));
+}
+
+void eliminarRegistro(string nombre)
+{
+    int pos = buscarRegistro(nombre);
+
+    if (pos == -1)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Estudiante no existe");
+        Console.ResetColor();
+        Console.ReadKey();
+        return;
+    }
+
+    for(int i = pos; i < estudiante.Length-1; i++)
+    {
+        estudiante[i] = estudiante[i + 1];
+    }
+
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("Registro eliminado");
+    i--;
+    Console.ResetColor();
+}
+
 
 void leerArchivo()
 {
@@ -88,6 +118,11 @@ void main()
                 guardarArchivo();
                 break;
             case 4:
+                Console.WriteLine("Que estudiante deseas eliminar: ");
+                nombre = Console.ReadLine();
+                eliminarRegistro(nombre);
+                break;
+            case 0:
                 Console.WriteLine("Adios...");
                 break;
             default:
@@ -95,7 +130,7 @@ void main()
                 break;
 
         }
-    } while (op != 4);
+    } while (op != 0);
 }
 
 main();
